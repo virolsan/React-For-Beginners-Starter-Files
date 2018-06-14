@@ -5,6 +5,8 @@ class Order extends React.Component {
     renderOrder = (key) => {
         const fish = this.props.fishes[key];
         const count = this.props.order[key];
+        // make sure that fish is loaded (firebase has slight delay)
+        if (!fish) return null;
         let isAvailable = fish.status === 'available';
         if (!isAvailable) {
             return <li key={key}>
@@ -15,7 +17,6 @@ class Order extends React.Component {
             {count} lbs {fish.name}
             {formatPrice(count * fish.price)}
         </li>
-        return
     }
 
     render() {
