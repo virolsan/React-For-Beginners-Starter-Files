@@ -2,7 +2,7 @@ import React from "react";
 
 class EditFishForm extends React.Component {
     handleChange = (event) => {
-        console.log(event.currentTarget.value);
+        //console.log('Handling change of property ' + event.currentTarget.value);
         // update that fish
         // 1. take a copy of the current fish
         // ..and update targeted property

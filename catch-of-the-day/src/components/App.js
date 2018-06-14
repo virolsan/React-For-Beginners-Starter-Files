@@ -16,6 +16,7 @@ class App extends React.Component {
         const {params} = this.props.match;
         // first reinstate our localStorage
         const localStorageRef = localStorage.getItem(params.storeId);
+        //console.log('Loading existing order: ' + localStorageRef);
         if (localStorageRef) {
             this.setState({order: JSON.parse(localStorageRef)});
         }
@@ -27,7 +28,7 @@ class App extends React.Component {
     };
 
     componentDidUpdate() {
-        console.log(this.state.order);
+        //console.log('Updating order: ' + JSON.stringify(this.state.order));
         localStorage.setItem(
             this.props.match.params.storeId,
             JSON.stringify(this.state.order)
